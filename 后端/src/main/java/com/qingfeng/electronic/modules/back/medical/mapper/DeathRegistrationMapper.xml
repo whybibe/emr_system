@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.qingfeng.electronic.modules.back.medical.dao.DeathRegistrationMapper">
+
+	<!-- 可根据自己的需求，是否要使用 -->
+    <resultMap type="com.qingfeng.electronic.modules.back.medical.domain.entity.DeathRegistration" id="deathRegistrationMap">
+        <result property="id" column="id"/>
+        <result property="admissionRegistrationId" column="admission_registration_id"/>
+        <result property="deathDate" column="death_date"/>
+        <result property="deathTime" column="death_time"/>
+        <result property="registrarId" column="registrar_id"/>
+        <result property="registrarName" column="registrar_name"/>
+        <result property="registrarPosition" column="registrar_position"/>
+        <result property="costCalculation" column="cost_calculation"/>
+        <result property="isSettled" column="is_settled"/>
+        <result property="confirmingDoctorId" column="confirming_doctor_id"/>
+        <result property="confirmingDoctorName" column="confirming_doctor_name"/>
+        <result property="confirmingDoctorPosition" column="confirming_doctor_position"/>
+        <result property="causeOfDeath" column="cause_of_death"/>
+        <result property="createTime" column="create_time"/>
+        <result property="updateTime" column="update_time"/>
+    </resultMap>
+
+    <!-- 根据条件查询死亡登记的数量 -->
+    <select id="selectDeathRegistrationCount" resultType="java.lang.Long">
+        select count(*) from death_registration d
+        LEFT JOIN admission_registration a ON d.admission_registration_id = a.id
+        WHERE 1=1
+        <if test="userName != null and userName != ''">
+            and a.user_name like CONCAT('%',#{userName},'%')
+        </if>
+        <if test="department != null and department != ''">
+            and d.department = #{patient}
+        </if>
+        <if test="patient != null and patient != ''">
+            and a.patient = #{patient}
+        </if>
+        <if test="wardNumber != null and wardNumber != ''">
+            and a.ward_number = #{wardNumber}
+        </if>
+        <if test="bedNumber != null and bedNumber != ''">
+            and a.bed_number = #{bedNumber}
+        </if>
+        <if test="deathDate != null">
+            and d.death_date &gt;= #{deathDate}
+        </if>
+        <if test="id != null">
+            and a.id = #{id}
+        </if>
+    </select>
+
+    <!-- 根据条件查询死亡登记列表 -->
+    <select id="selectDeathRegistrationPage"
+            resultType="com.qingfeng.electronic.modules.back.medical.domain.ro.DeathRegistrationRo">
+        select d.id,
+               a.id aId,
+               d.admission_registration_id,
+               a.user_name userName,
+               a.contact_number,
+               a.department,
+               a.patient,
+               a.doctor_name,
+               a.ward_number,
+               a.bed_number,
+               a.file_url,
+               d.death_date,
+               d.death_time,
+               d.registrar_id,
+               d.registrar_name,
+               d.registrar_position,
+               d.cost_calculation,
+               d.is_settled,
+               d.confirming_doctor_id,
+               d.confirming_doctor_name,
+               d.confirming_doctor_position,
+               d.cause_of_death,
+               d.create_time,
+               d.update_time
+        FROM death_registration d
+        LEFT JOIN admission_registration a ON d.admission_registration_id = a.id
+        WHERE 1=1
+        <if test="userName != null and userName != ''">
+            and a.user_name like CONCAT('%',#{userName},'%')
+        </if>
+        <if test="department != null and department != ''">
+            and d.department = #{patient}
+        </if>
+        <if test="patient != null and patient != ''">
+            and a.patient = #{patient}
+        </if>
+        <if test="wardNumber != null and wardNumber != ''">
+            and a.ward_number = #{wardNumber}
+        </if>
+        <if test="bedNumber != null and bedNumber != ''">
+            and a.bed_number = #{bedNumber}
+        </if>
+        <if test="deathDate != null">
+            and d.death_date &gt;= #{deathDate}
+        </if>
+        <if test="id != null">
+            and a.id = #{id}
+        </if>
+        order by d.create_time desc
+        limit #{pageNo}, #{pageSize}
+    </select>
+
+
+</mapper>

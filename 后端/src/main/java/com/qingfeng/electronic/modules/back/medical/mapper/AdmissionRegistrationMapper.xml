@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.qingfeng.electronic.modules.back.medical.dao.AdmissionRegistrationMapper">
+
+	<!-- 可根据自己的需求，是否要使用 -->
+    <!--<resultMap type="com.qingfeng.electronic.modules.back.medical.domain.entity.AdmissionRegistration" id="admissionRegistrationMap">
+        <result property="id" column="id"/>
+        <result property="userName" column="user_name"/>
+        <result property="formerName" column="former_name"/>
+        <result property="gender" column="gender"/>
+        <result property="birthDay" column="birth_day"/>
+        <result property="age" column="age"/>
+        <result property="weight" column="weight"/>
+        <result property="height" column="height"/>
+        <result property="maritalStatus" column="marital_status"/>
+        <result property="ethnicity" column="ethnicity"/>
+        <result property="identificationType" column="identification_type"/>
+        <result property="identificationNumber" column="identification_number"/>
+        <result property="placeBirth" column="place_birth"/>
+        <result property="nativePlace" column="native_place"/>
+        <result property="nationality" column="nationality"/>
+        <result property="educationLevel" column="education_level"/>
+        <result property="contactNumber" column="contact_number"/>
+        <result property="email" column="email"/>
+        <result property="religiousBelief" column="religious_belief"/>
+        <result property="insuranceNumber" column="insurance_number"/>
+        <result property="insuranceType" column="insurance_type"/>
+        <result property="medicalCertificateNumber" column="medical_certificate_number"/>
+        <result property="bloodType" column="blood_type"/>
+        <result property="rhType" column="rh_type"/>
+        <result property="depId" column="dep_id"/>
+        <result property="department" column="department"/>
+        <result property="patient" column="patient"/>
+        <result property="doctorId" column="doctor_id"/>
+        <result property="doctorName" column="doctor_name"/>
+        <result property="doctorPosition" column="doctor_position"/>
+        <result property="wardNumber" column="ward_number"/>
+        <result property="bedNumber" column="bed_number"/>
+        <result property="registrationDate" column="registration_date"/>
+        <result property="registrar" column="registrar"/>
+        <result property="registrarPosition" column="registrar_position"/>
+        <result property="occupation" column="occupation"/>
+        <result property="isLocal" column="is_local"/>
+        <result property="registeredAddress" column="registered_address"/>
+        <result property="registeredPostcode" column="registered_postcode"/>
+        <result property="homeAddress" column="home_address"/>
+        <result property="homePostcode" column="home_postcode"/>
+        <result property="employer" column="employer"/>
+        <result property="workAddress" column="work_address"/>
+        <result property="workPhone" column="work_phone"/>
+        <result property="emergencyContactGroup" column="emergency_contact_group"/>
+        <result property="createTime" column="create_time"/>
+        <result property="updateTime" column="update_time"/>
+    </resultMap>-->
+
+
+</mapper>

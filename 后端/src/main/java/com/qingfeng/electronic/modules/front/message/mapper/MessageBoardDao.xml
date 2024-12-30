@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.qingfeng.electronic.modules.front.message.dao.MessageBoardMapper">
+
+	<!-- 可根据自己的需求，是否要使用 -->
+    <resultMap type="com.qingfeng.electronic.modules.front.message.domain.entity.MessageBoard" id="messageBoardMap">
+        <result property="id" column="id"/>
+        <result property="userId" column="user_id"/>
+        <result property="messageContent" column="message_content"/>
+        <result property="likes" column="likes"/>
+        <result property="poorPraise" column="poor_praise"/>
+        <result property="createTime" column="create_time"/>
+        <result property="updateTime" column="update_time"/>
+    </resultMap>
+
+
+</mapper>
